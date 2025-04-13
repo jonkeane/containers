@@ -1,5 +1,5 @@
 
-name: R builds
+name: R builds (macos)
 
 on:
   push
@@ -28,6 +28,8 @@ jobs:
 
       - name: Build R
         run: |
+          brew install svn
+
           svn checkout https://svn.r-project.org/R/trunk/ R-devel
           popd R-devel # or R-patched
           ./tools/rsync-recommended
