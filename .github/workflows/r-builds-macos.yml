@@ -21,8 +21,6 @@ jobs:
   package-files:
     strategy:
       fail-fast: false
-      matrix:
-        platform: ${{ fromJson(needs.setup-matrix.outputs.platforms) }}
     runs-on: macos-latest
     name: macos-san
     steps:
