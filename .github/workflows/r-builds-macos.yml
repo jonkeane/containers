@@ -31,7 +31,7 @@ jobs:
           brew install svn
 
           svn checkout https://svn.r-project.org/R/trunk/ R-devel
-          popd R-devel # or R-patched
+          pushd R-devel # or R-patched
           ./tools/rsync-recommended
 
           # fortran
@@ -48,16 +48,16 @@ jobs:
           sudo installer -pkg XQuartz-2.8.5.pkg -target /
 
           git clone https://github.com/R-macos/recipes.git
-          popd recipes
+          pushd recipes
           export PREFIX=/opt/R/$(uname -m)
           sudo -E bash ./build.sh r-base-dev
-          pushd
+          popd
 
           export PATH=/opt/R/$(uname -m)/bin:${PATH}
 
 
           mkdir _build
-          popd _build
+          pushd _build
 
 
           curl -LO https://github.com/r-devel/r-dev-web/blob/c92348aef984439d8ba8149dded662f4530505e5/CRAN/QA/BDR/M1mac/SAN/config.site
