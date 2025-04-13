@@ -31,7 +31,7 @@ jobs:
           brew install svn
 
           svn checkout https://svn.r-project.org/R/trunk/ R-devel
-          pushd R-devel # or R-patched
+          pushd R-devel 
           ./tools/rsync-recommended
       
       - name: Install gfortran
@@ -71,6 +71,7 @@ jobs:
 
       - name: Build R
         run: |
+          pushd R-devel 
           export PATH=/opt/R/$(uname -m)/bin:${PATH}
 
           mkdir _build
