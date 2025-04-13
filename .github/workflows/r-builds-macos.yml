@@ -2,16 +2,17 @@
 name: R builds
 
 on:
-  workflow_dispatch:
-    inputs:
-      platforms:
-        description: |
-          Comma-separated list of platforms. Default is "all" to use all platforms.
-        required: false
-        default: 'all'
-        type: string
-  schedule:
-    - cron:  '55 2 * * *'
+  push
+  # workflow_dispatch:
+  #   inputs:
+  #     platforms:
+  #       description: |
+  #         Comma-separated list of platforms. Default is "all" to use all platforms.
+  #       required: false
+  #       default: 'all'
+  #       type: string
+  # schedule:
+  #   - cron:  '55 2 * * *'
 
 permissions:
   contents: write
